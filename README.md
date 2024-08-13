@@ -7,6 +7,13 @@ Ring the `pc` periodically. Requires admin privilege.
 
 ## Usage
 
-- Input `interval time` (second)
+- Input `interval time` (second) (can alse be set by a cli argument)
 - Press `space bar` to continue the loop
 - Press `esc` to exit the program
+
+## Build
+
+```
+pip install pyinstaller
+pyinstaller --onefile main.py
+```

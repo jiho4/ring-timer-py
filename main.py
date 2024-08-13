@@ -1,10 +1,11 @@
 import time
 import os
+import sys
 import threading
 from pynput import keyboard
 
 # second
-interval_sleep_time = 280
+interval_sleep_time = 3600
 
 continue_loop = False
 exit_program = False
@@ -12,7 +13,7 @@ loop_counter = 0
 
 
 # TODO: change sleep to listening, and space pressed before ring then start again
-# TODO: consider to change it to R eact, running on browser and show realtime info like time left to ring
+# TODO: consider to change it to React, running on browser and show realtime info like time left to ring
 def ring_laptop():
     # This command uses the 'afplay' utility to play a sound on macOS.
     os.system('afplay /System/Library/Sounds/Ping.aiff')
@@ -41,14 +42,18 @@ def main():
     global exit_program
     global loop_counter
 
-    # get input for interval time to sleep
-    print("Enter the time interval in seconds to ring the laptop (default: 280 seconds):")
-    try:
-        interval_sleep_time = int(input())
-    except ValueError:
-        print("Invalid input. Using the default value of 280 seconds.")
-
     print("Starting the program...")
+
+    try:
+        if len(sys.argv) > 1:
+            # if parameter is passed, use it as interval time to sleep
+            interval_sleep_time = int(sys.argv[1])
+        else:
+            # get input for interval time to sleep
+            print(f"Enter the time interval in seconds to ring the laptop (default: {interval_sleep_time}seconds):")
+            interval_sleep_time = int(input())
+    except ValueError:
+        print(f"Invalid input. Using the default value of {interval_sleep_time}seconds.")
 
     while True:
         print(f"(current loop: {loop_counter})  Waiting for {interval_sleep_time} seconds...")
