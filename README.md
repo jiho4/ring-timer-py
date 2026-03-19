@@ -1,5 +1,6 @@
 # Ring Timer (python ver.)
 *created: 2024/07/12*
+v1.0.0
 
 ## Description
 

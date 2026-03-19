@@ -5,3 +5,5 @@
 /venv/
 
 /main.spec
+
+.DS_store
