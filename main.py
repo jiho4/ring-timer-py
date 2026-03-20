@@ -3,7 +3,7 @@ import sys
 import threading
 from pynput import keyboard
 
-__version__ = "1.1.0-SNAPSHOT"
+__version__ = "1.1.0"
 
 DEFAULT_INTERVAL = 3600  # seconds
 
